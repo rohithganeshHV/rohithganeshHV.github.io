@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@3.3.5/src/sdk.min.js"></script>
+</head>
+
+<body>
+    <left>
+        <h1>Hyperverge WebSDK Demo</h1>
+    </left>
+    <div class="container">
+        <div class="form-group">
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">Document Capture</button>
+            <button type="button" onclick="faceCapture();" class="btn btn-primary">Face Capture</button>
+        </div>
+        <div id="div1"></div>
+    </div>
+    <script>
+        // client calls the auth api to get the token from their backend server
+        var jwtToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImRmNzZhMyIsImhhc2giOiI3MGZhNzQ3ZDdjZDU2Yjc2YWJhOTAwOTFjY2MyOTBkZjE5ZDEyY2FiMDkwMDE0MzQyZjY0NzUxNTk1NGZhNDQ3IiwiaWF0IjoxNjQxODc2OTg2LCJleHAiOjE2NDE5MDY5ODYsImp0aSI6IjRmNGY5NjYyLTAwZDgtNGUwNC05NDA5LWJiZmM3ZWJkZTkzNiJ9.A6gGVXmaU12E0cpo77_SEQ2QSahmMs4ATwXTpFyE-0s5QqLD8HJZRcqKwm8TRmlxZZu8sbviF9wRJJiOriNl38Ctq3IqXobxEURqOM_yDjavoibH0jY96VPvuzHtZTh-ujSmQKhjU9GK_S4dwE82S4OaTh6WGCs2lXcuf8qKTIE'
+        HyperSnapSDK.init(jwtToken, HyperSnapParams.Region.India);
+        HyperSnapSDK.startUserSession();
+        var faceImage = '';
+        var docImage = '';
+        //----------------------------DOCUMENT   CAPTURE-------------------------------------------
+
+        var documentCapture = () => {
+            hvDocConfig = new HVDocConfig();
+            hvDocConfig.setOCRDetails(
+                'https://ind-docs.hyperverge.co/v2.0/readKYC',
+                hvDocConfig.DocumentSide.FRONT, {}, {},
+            );
+            hvDocConfig.setShouldShowInstructionPage(true);
+            HVDocsModule.start(hvDocConfig, callback);
+
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+        var faceCapture = () => {
+            hvFaceConfig = new HVFaceConfig();
+            hvFaceConfig.setShouldShowInstructionPage(true);
+            hvFaceConfig.setLivenessAPIParameters({
+                rejectFaceMask: 'yes',
+                allowEyesClosed: 'no',
+                allowMultipleFaces: 'no',
+            });
+            HVFaceModule.start(hvFaceConfig, callback);
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
+        var callback = (HVError, HVResponse) => {
+            if (HVError) {
+                var para = document.createElement('p');
+                var node = document.createTextNode(JSON.stringify(HVError));
+                para.appendChild(node);
+                var element = document.getElementById('div1');
+                element.appendChild(para);
+            } else {
+                var para = document.createElement('p');
+                var node = document.createTextNode(JSON.stringify(HVResponse));
+                para.appendChild(node);
+                var element = document.getElementById('div1');
+                element.appendChild(para);
+            }
+        };
+    </script>
+</body>
+
+</html>
