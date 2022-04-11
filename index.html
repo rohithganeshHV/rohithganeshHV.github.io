@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@3.3.5/src/sdk.min.js"></script>
+    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@4.0.0/src/sdk.min.js"></script>
 </head>
 
 <body>
@@ -18,52 +18,28 @@
     </div>
     <script>
         // client calls the auth api to get the token from their backend server
-        var jwtToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImJlZGM4NSIsImhhc2giOiI4OTc2ZTkwODY3ZTYwMWIzYzRlYjU3OTRkYTg1NjVlYTdiNGQzYzMyZjVhZTQ5NTA0ODQ2NzE2MDlmN2UxNWY5IiwiaWF0IjoxNjQ5MDc1OTUyLCJleHAiOjE2NDkwNzU5NTMsImp0aSI6IjFiODU2ZmM0LWMwZjktNDZmZS04NTcyLTAzNDhjYWI0NjU5ZCJ9.itR-o8nJ-tmLHG2RbhdMTvA6el0WrryqBjVJkzpt_qLVkMwid_VawC3Uf9zEP3KeZP4CnodwxJlw4bOYcxhttmZxMSg24tPqopK1IZyHR-BshTRs1AfvtBHPKXfXp0WWKu9yGRkKj40JDmLywYKQTPP5nOeg-cXE1-Vi2lyGFD0'
-        HyperSnapSDK.init(jwtToken, HyperSnapParams.Region.India);
-        HyperSnapSDK.startUserSession();
-        var faceImage = '';
-        var docImage = '';
-        //----------------------------DOCUMENT   CAPTURE-------------------------------------------
+        var jwtToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFhMTBiNSIsImhhc2giOiIyYzdkNGY0YTFiMDQyNTVkMTBjM2U4ODY5NjYwNjgzYWE2ZmY1ODlhMGM2OWZkN2FiMWRkZmFkYjM3YjRkMzY2IiwiaWF0IjoxNjQ5NjY5MzYxLCJleHAiOjE2NDk3NDkzNjEsImp0aSI6IjY1MmEwNzk4LTUzZDgtNDBlZS05ZTQ2LWZmYWU0YWJlNzFjNiJ9.LsHZmVCoVtvKIWzeo43c-spK_I2qyV5TYyX2Fzp1AiYju4igG33Bhw8Y7xb5AZkCvow-NhIhG9f5QIQfHJFAiFYyQGyNWXJSjIoZSaAxAPw13Qe9onDfzPZDysO-PaeUwj6TBVDniWJQBhqVkg0xbWyzwLwbS2bsKod6ncgnmug'
 
         var documentCapture = () => {
-            hvDocConfig = new HVDocConfig();
-            hvDocConfig.setOCRDetails(
-                'https://ind-docs.hyperverge.co/v2.0/readKYC',
-                hvDocConfig.DocumentSide.FRONT, {}, {},
-            );
-            hvDocConfig.setShouldShowInstructionPage(true);
-            HVDocsModule.start(hvDocConfig, callback);
 
-        }
+            const workflow = ['DOCUMENT', 'FACE'];
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, transactionId);
 
-        //--------------------------------------------------------------------------------------------------------------
-        var faceCapture = () => {
-            hvFaceConfig = new HVFaceConfig();
-            hvFaceConfig.setShouldShowInstructionPage(true);
-            hvFaceConfig.setLivenessAPIParameters({
-                rejectFaceMask: 'yes',
-                allowEyesClosed: 'no',
-                allowMultipleFaces: 'no',
-            });
-            HVFaceModule.start(hvFaceConfig, callback);
-        }
-
-        //--------------------------------------------------------------------------------------------------------------
-        var callback = (HVError, HVResponse) => {
-            if (HVError) {
-                var para = document.createElement('p');
-                var node = document.createTextNode(JSON.stringify(HVError));
-                para.appendChild(node);
-                var element = document.getElementById('div1');
-                element.appendChild(para);
-            } else {
-                var para = document.createElement('p');
-                var node = document.createTextNode(JSON.stringify(HVResponse));
-                para.appendChild(node);
-                var element = document.getElementById('div1');
-                element.appendChild(para);
+            const handler = (HyperKycResult) => {
+                if (HyperKycResult.Cancelled) {
+                    // user cancelled
+                } else if (HyperKycResult.Failure) {
+                    // failure
+                } else if (HyperKycResult.Success) {
+                    // success
+                }
             }
-        };
+
+            window.HyperKYCModule.launch(hyperKycConfig, handler);
+
+        }
+
+        //--------------------------------------------------------------------------------------------------------------
     </script>
 </body>
 
