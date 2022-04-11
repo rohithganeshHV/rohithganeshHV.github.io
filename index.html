@@ -11,7 +11,7 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC LAUNCH Capture 4</button>
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC LAUNCH Mobile Test </button>
         </div>
         <div id="div1"></div>
     </div>
@@ -19,38 +19,42 @@
         // client calls the auth api to get the token from their backend server
 
         var documentCapture = () => {
-            
-            
-            console.log("JWT NOT READY");
-                 var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFhMTBiNSIsImhhc2giOiIyYzdkNGY0YTFiMDQyNTVkMTBjM2U4ODY5NjYwNjgzYWE2ZmY1ODlhMGM2OWZkN2FiMWRkZmFkYjM3YjRkMzY2IiwiaWF0IjoxNjQ5NjY5MzYxLCJleHAiOjE2NDk3NDkzNjEsImp0aSI6IjY1MmEwNzk4LTUzZDgtNDBlZS05ZTQ2LWZmYWU0YWJlNzFjNiJ9.LsHZmVCoVtvKIWzeo43c-spK_I2qyV5TYyX2Fzp1AiYju4igG33Bhw8Y7xb5AZkCvow-NhIhG9f5QIQfHJFAiFYyQGyNWXJSjIoZSaAxAPw13Qe9onDfzPZDysO-PaeUwj6TBVDniWJQBhqVkg0xbWyzwLwbS2bsKod6ncgnmug'
 
-console.log("JWT READY");
+
+            console.log("JWT NOT READY");
+            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFhMTBiNSIsImhhc2giOiIyYzdkNGY0YTFiMDQyNTVkMTBjM2U4ODY5NjYwNjgzYWE2ZmY1ODlhMGM2OWZkN2FiMWRkZmFkYjM3YjRkMzY2IiwiaWF0IjoxNjQ5NjY5MzYxLCJleHAiOjE2NDk3NDkzNjEsImp0aSI6IjY1MmEwNzk4LTUzZDgtNDBlZS05ZTQ2LWZmYWU0YWJlNzFjNiJ9.LsHZmVCoVtvKIWzeo43c-spK_I2qyV5TYyX2Fzp1AiYju4igG33Bhw8Y7xb5AZkCvow-NhIhG9f5QIQfHJFAiFYyQGyNWXJSjIoZSaAxAPw13Qe9onDfzPZDysO-PaeUwj6TBVDniWJQBhqVkg0xbWyzwLwbS2bsKod6ncgnmug'
+
+            console.log("JWT READY");
             const workflow = ['DOCUMENT', 'FACE'];
-            
+
             console.log("wf READY");
 
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "Test_roh_for_credislice");
-            
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "TestAppForCredislice");
+
             console.log("config READY");
 
 
             const handler = (HyperKycResult) => {
+
                 if (HyperKycResult.Cancelled) {
                     console.log("cancelled");
+                                    window.print(HyperKycResult);
 
                     // user cancelled
                 } else if (HyperKycResult.Failure) {
                     // failure
                     console.log("failure");
-                                        console.log(HyperKycResult);
+                                    window.print(HyperKycResult);
 
 
                 } else if (HyperKycResult.Success) {
-console.log("success");
+                    console.log("success");
+                                    window.print(HyperKycResult);
+
                 }
             }
 
-            window.HyperKYCModule.launch(hyperKycConfig, handler); 
+            window.HyperKYCModule.launch(hyperKycConfig, handler);
 
         }
 
