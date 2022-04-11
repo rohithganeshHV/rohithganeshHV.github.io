@@ -11,15 +11,16 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC LAUNCH Capture</button>
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC LAUNCH Capture 1</button>
         </div>
         <div id="div1"></div>
     </div>
     <script>
         // client calls the auth api to get the token from their backend server
-        var jwtToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFhMTBiNSIsImhhc2giOiIyYzdkNGY0YTFiMDQyNTVkMTBjM2U4ODY5NjYwNjgzYWE2ZmY1ODlhMGM2OWZkN2FiMWRkZmFkYjM3YjRkMzY2IiwiaWF0IjoxNjQ5NjY5MzYxLCJleHAiOjE2NDk3NDkzNjEsImp0aSI6IjY1MmEwNzk4LTUzZDgtNDBlZS05ZTQ2LWZmYWU0YWJlNzFjNiJ9.LsHZmVCoVtvKIWzeo43c-spK_I2qyV5TYyX2Fzp1AiYju4igG33Bhw8Y7xb5AZkCvow-NhIhG9f5QIQfHJFAiFYyQGyNWXJSjIoZSaAxAPw13Qe9onDfzPZDysO-PaeUwj6TBVDniWJQBhqVkg0xbWyzwLwbS2bsKod6ncgnmug'
 
         var documentCapture = () => {
+                 var jwtToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFhMTBiNSIsImhhc2giOiIyYzdkNGY0YTFiMDQyNTVkMTBjM2U4ODY5NjYwNjgzYWE2ZmY1ODlhMGM2OWZkN2FiMWRkZmFkYjM3YjRkMzY2IiwiaWF0IjoxNjQ5NjY5MzYxLCJleHAiOjE2NDk3NDkzNjEsImp0aSI6IjY1MmEwNzk4LTUzZDgtNDBlZS05ZTQ2LWZmYWU0YWJlNzFjNiJ9.LsHZmVCoVtvKIWzeo43c-spK_I2qyV5TYyX2Fzp1AiYju4igG33Bhw8Y7xb5AZkCvow-NhIhG9f5QIQfHJFAiFYyQGyNWXJSjIoZSaAxAPw13Qe9onDfzPZDysO-PaeUwj6TBVDniWJQBhqVkg0xbWyzwLwbS2bsKod6ncgnmug'
+
 
             const workflow = ['DOCUMENT', 'FACE'];
             const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, transactionId);
