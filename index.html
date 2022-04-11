@@ -11,7 +11,7 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC LAUNCH Mobile Test </button>
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC LAUNCH CL added</button>
         </div>
         <div id="div1"></div>
     </div>
@@ -38,19 +38,17 @@
 
                 if (HyperKycResult.Cancelled) {
                     console.log("cancelled");
-                                    window.print(HyperKycResult);
+                                    console.log(HyperKycResult);
 
                     // user cancelled
                 } else if (HyperKycResult.Failure) {
                     // failure
                     console.log("failure");
-                                    window.print(HyperKycResult);
-
+console.log(HyperKycResult);
 
                 } else if (HyperKycResult.Success) {
                     console.log("success");
-                                    window.print(HyperKycResult);
-
+console.log(HyperKycResult);
                 }
             }
 
