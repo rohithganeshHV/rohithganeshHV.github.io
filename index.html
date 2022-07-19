@@ -25,7 +25,9 @@
             var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFhMTBiNSIsImhhc2giOiIyYzdkNGY0YTFiMDQyNTVkMTBjM2U4ODY5NjYwNjgzYWE2ZmY1ODlhMGM2OWZkN2FiMWRkZmFkYjM3YjRkMzY2IiwiaWF0IjoxNjU1OTc5NjAzLCJleHAiOjE2NTU5Nzk2ODcsImp0aSI6ImE3ZGQxODI2LWI1MjUtNGE2Ny1hODU0LTNiMGM1N2U0NTJjZSJ9.CIguVPGmXoiLH9KhV5zY0eDF8rWGA4SYm2gsZZ6w3GGtB8x8ybJO-z9xBgjRzc7M-uPGYe_pn_gKkcGGfMzPqcxKnjf1YJOIEJAmpCRA1PVCjUqTKgieKZS30FFP7A66yyQnfAznmISEmCnQd3Ipq2o1kHq9bFPruLNN-WhkWuw'
 console.log(accessToken); 
             console.log("JWT READY");
-            const workflow = ['DOCUMENT', 'FACE'];
+            
+            
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflowId, transactionId);
 
             console.log("wf READY");
 
@@ -33,25 +35,16 @@ console.log(accessToken);
 
             console.log("config READY");
 
-
             const handler = (HyperKycResult) => {
-
-                if (HyperKycResult.Cancelled) {
-                    console.log("cancelled");
-                                    console.log(HyperKycResult);
-
-                    // user cancelled
-                } else if (HyperKycResult.Failure) {
-                    // failure
-                    console.log("failure");
-console.log(HyperKycResult);
-
-                } else if (HyperKycResult.Success) {
-                    console.log("success");
-console.log(HyperKycResult);
-                }
+                if(HyperKycResult.Cancelled){ //User cancelled
+                    console.log("User Cancelled");
+                }else if(HyperKycResult.Failure){ // failure
+        
+      	            console.log("Error Occured");
+                }else if(HyperKycResult.Success){ // success
+      	               console.log("Successful Implementation");
+                 }
             }
-
             window.HyperKYCModule.launch(hyperKycConfig, handler);
 
         }
