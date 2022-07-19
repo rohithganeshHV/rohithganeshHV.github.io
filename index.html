@@ -11,7 +11,7 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC WORKFLOW BUILDER 4- Please check console for output</button>
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC WORKFLOW BUILDER 5- Please check console for output</button>
         </div>
         <div id="div1"></div>
     </div>
@@ -35,11 +35,17 @@ console.log(accessToken);
             const handler = (HyperKycResult) => {
                 if(HyperKycResult.Cancelled){ //User cancelled
                     console.log("User Cancelled");
+                                              	            console.log(HyperKycResult.Cancelled);
+
                 }else if(HyperKycResult.Failure){ // failure
         
       	            console.log("Error Occured");
+                          	            console.log(HyperKycResult.Failure);
+
                 }else if(HyperKycResult.Success){ // success
       	               console.log("Successful Implementation");
+                                              	            console.log(HyperKycResult.Success);
+
                  }
             }
             window.HyperKYCModule.launch(hyperKycConfig, handler);
