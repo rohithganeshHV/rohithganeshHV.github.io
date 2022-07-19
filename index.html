@@ -11,19 +11,18 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC WORKFLOW BUILDER 7- Please check console for output</button>
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC WORKFLOW BUILDER 8- Please check console for output</button>
         </div>
         <div id="div1"></div>
     </div>
     <script>
         // client calls the auth api to get the token from their backend server
 
-        var documentCapture = () => {
 
 
             console.log("JWT NOT READY");
             var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjdiNzBjZSIsImhhc2giOiJjY2UwNzI1YmJjMGMxNzEzYzZlMTQxZjQ0NmJhNjdiNzMwZmUyZWNjNTQ0YzkzM2IzNjJiY2E3ZTg4ZTMxOWU5IiwiaWF0IjoxNjU4MjQzMzY1LCJleHAiOjE2NTgzMjMzNjUsImp0aSI6IjYxZjBkNzFiLTE1ODctNDYwMS05Nzg3LWQ1NDMxNDhiY2Q0MCJ9.t4WwfOOSXCxCD5ddTUgIQ1eckdQo5VmXSwNyHffcDQpwaFX90pmeDrFL_nq3_ad0b9xYjZFaUHSoUvH2D0brYA1kD_4cy4RHPnIgDgdckM5SOrOal0Zu8VCH0oIf1aMmjzlheMgzZxDNzqsXdrePsoXG9AmvzZ7M93ekWbo_sGA'
-console.log(accessToken); 
+            //console.log(accessToken); 
             console.log("JWT READY");
             
             const workflow = "workflow-aviral-test"
@@ -47,7 +46,7 @@ console.log(accessToken);
                                               	            console.log(HyperKycResult.Success);
 
                  }
-            }
+            
             window.HyperKYCModule.launch(hyperKycConfig, handler);
 
         }
