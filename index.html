@@ -11,7 +11,7 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC WORKFLOW BUILDER - Please check console for output</button>
+            <button type="button" onclick="documentCapture();" class="btn btn-primary">GKYC WORKFLOW BUILDER 1- Please check console for output</button>
         </div>
         <div id="div1"></div>
     </div>
@@ -26,12 +26,9 @@
 console.log(accessToken); 
             console.log("JWT READY");
             
+            const workflow = "prod_pii_flow"
             
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflowId, transactionId);
-
-            console.log("wf READY");
-
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "TestAppForCredislice");
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdAppForMillionEro");
 
             console.log("config READY");
 
