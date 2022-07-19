@@ -11,7 +11,7 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="startWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER 8- Please check console for output</button>
+            <button type="button" onclick="startWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER 10- Please check console for output</button>
         </div>
         <div id="div1"></div>
     </div>
@@ -28,27 +28,29 @@
             const workflow = "workflow-aviral-test"
             
             const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdAppForMillionEro");
-
-            console.log("config READY");
-
-            const handler = (HyperKycResult) => {
+                
+                const handler = (HyperKycResult) => {
                 if(HyperKycResult.Cancelled){ //User cancelled
                     console.log("User Cancelled");
-                                              	            console.log(HyperKycResult.Cancelled);
-
+                    console.log(HyperKycResult.Cancelled);
                 }else if(HyperKycResult.Failure){ // failure
         
       	            console.log("Error Occured");
-                          	            console.log(HyperKycResult.Failure);
-
+                    console.log(HyperKycResult.Failure);
                 }else if(HyperKycResult.Success){ // success
-      	               console.log("Successful Implementation");
-                                              	            console.log(HyperKycResult.Success);
+      	            console.log("Successful Implementation");
+                    console.log(HyperKycResult.Success);
+                }
+                
+                }
+                
+                window.HyperKYCModule.launch(hyperKycConfig, handler);
 
-                 }
             
-            window.HyperKYCModule.launch(hyperKycConfig, handler);
-            }
+                
+                
+                
+                
         }
 
         //--------------------------------------------------------------------------------------------------------------
