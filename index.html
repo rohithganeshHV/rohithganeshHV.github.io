@@ -21,13 +21,13 @@
 
             const startWorkflow = async function (){
             console.log("JWT NOT READY");
-            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjdiNzBjZSIsImhhc2giOiJjY2UwNzI1YmJjMGMxNzEzYzZlMTQxZjQ0NmJhNjdiNzMwZmUyZWNjNTQ0YzkzM2IzNjJiY2E3ZTg4ZTMxOWU5IiwiaWF0IjoxNjU4MzI2MDYzLCJleHAiOjE2NTg0MTI0NjMsImp0aSI6IjlmMTdkZWVhLTNlMmYtNGU4Yy1hZmE4LTgzNDk1YzcyZTQwMCJ9.HHtoJmg9kooly5PICc2H6HrLlMCPTrPHchluVqoKD4Ah-KBvYpu1xqhZsUF9rjKnBCMBQzCA6Oln-zMubvNIhnVIJIko1dX65gG5W5PxdDUykxQnJorOOJN3R31iWB2e-5fgp-gx4ugaFukopYofYFWT1ZJNM6VXLprdFTz_vjs'
+            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjdiNzBjZSIsImhhc2giOiJjY2UwNzI1YmJjMGMxNzEzYzZlMTQxZjQ0NmJhNjdiNzMwZmUyZWNjNTQ0YzkzM2IzNjJiY2E3ZTg4ZTMxOWU5IiwiaWF0IjoxNjU4Mzg0NzM3LCJleHAiOjE2NTg0NzExMzcsImp0aSI6ImVmZTE3ODY2LTNmMDgtNDBjMi1hNjkxLTAwZWVjN2ViMjA4NSJ9.MYFmuXgm2CqkOiCnzybgdHPCeFtq6PAkICYFfNg3oPuHbIGXhULSoFrOOLZ3qJZ9fFr184VLxcCGbubxspV1SCXGAdJ_rZxXiCg-cqn0kIo_nKK-JGdJgF9231gtemvG3p8BDoq1a-lXtcQq-4yD5Q46Iyf6WieE1ybmLc9mcL4'
             //console.log(accessToken); 
             console.log("JWT READY");
             
             const workflow = "prod_pii_flow"
             
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdApp_Testing_Internal_HV_Final");
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdApp_Testing_Internal_QC");
                 
                 const handler = (HyperKycResult) => {
                 if(HyperKycResult.Cancelled){ //User cancelled
