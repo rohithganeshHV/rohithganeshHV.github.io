@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.1.3/src/sdk.min.js"></script>
+    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.1.4/src/sdk.min.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
             var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjdiNzBjZSIsImhhc2giOiJjY2UwNzI1YmJjMGMxNzEzYzZlMTQxZjQ0NmJhNjdiNzMwZmUyZWNjNTQ0YzkzM2IzNjJiY2E3ZTg4ZTMxOWU5IiwiaWF0IjoxNjU4NDMxNTQ0LCJleHAiOjE2NTg1MTc5NDQsImp0aSI6ImZmODM5OWU0LWY4ZjctNDEwYi1hMzc4LTBmMWNjNjRkZDI5YSJ9.HTQ9CdfqB0vxytcIn2ghjTTf-jS36xeYjJc5dN8lBUUsZ032KUOEQUgkYCI5WMp0b0s1YpMiAv8y_x921t5AaTuYRagQFXMcH60NWNZwH6BAiSKsh4oB3M2_5g-xlotbiiQpBTJOtqJ3TqCIBbZjXDxdTXFIx0vZ2guFdVnGhAY'
             const workflow = "prod_pii_flow"
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdApp_Testing_Internal_1_PII");
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdApp_Testing_Internal_3_PII");
 
             const handler = (HyperKycResult) => {
                 if (HyperKycResult.Cancelled) { //User cancelled
@@ -56,7 +56,7 @@
 
             const workflow = "prod_poa_flow"
 
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdApp_Testing_Internal_1_POA");
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow, "ProdApp_Testing_Internal_3_POA");
 
             const handler = (HyperKycResult) => {
                 if (HyperKycResult.Cancelled) { //User cancelled
