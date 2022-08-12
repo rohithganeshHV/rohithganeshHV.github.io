@@ -11,9 +11,9 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="startPOIWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER PII 2- Please check console for output</button>
-            <button type="button" onclick="startPOAWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER POA 1- Please check console for output</button>
-
+            <button type="button" onclick="startPOIWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER Temporary for coinsbit- Please check console for output</button>
+          <!--  <button type="button" onclick="startPOAWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER POA 1- Please check console for output</button>
+-->
         </div>
         <div id="div1"></div>
 
@@ -30,8 +30,8 @@
             
             
             
-            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjdiNzBjZSIsImhhc2giOiJjY2UwNzI1YmJjMGMxNzEzYzZlMTQxZjQ0NmJhNjdiNzMwZmUyZWNjNTQ0YzkzM2IzNjJiY2E3ZTg4ZTMxOWU5IiwiaWF0IjoxNjU4NjYyOTAzLCJleHAiOjE2NTg3NDkzMDMsImp0aSI6ImJlOWRhMjE5LWM5OGUtNDhmZS04ZDhhLWI1NjY4Mjc0M2YxZiJ9.OkeMD9HMyu_8foaiss-HjwN7n-MSZhRpNjVfRNcwgrspEV5Uc4qZiKKiv3JzHVZIRw3s9F21Nd5BPRHAv9NR7WxLXqV5DyMRENmzpTisZphVNaBjie-HMQHyuHopVHpAL0gpT3SamPvrWuf8nVzVAPTrKmwM0hIhGGIrGeimCH0'
-            const workflow = "prod_pii_flow"
+            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjlkZDU2YiIsImhhc2giOiIyM2I0YTkyNzM2ZGY3ODdjNDA3YjUzNmYzMzE4MjdmZGU2MWJiM2I4MWM4ZGJkY2Q3YTgzMWFmNzY3OWM3NjZlIiwiaWF0IjoxNjYwMzE4MTI1LCJleHAiOjE2NjA0MDQ1MjUsImp0aSI6ImI3NTVkMThkLTUzZmItNGRhYi1hZGNmLTk0ZDNkYjc4OWEwYyJ9.epwWP7uZv3Edr7MOO9AhCODmfYw1Wg2irzxArjLSncPNphybcSnjhzE2NP5zLe_bFaC2RaamRlZznbnWB2v2zt4kRSHTAomZvx9N8mm5E46Jhj69VHA3yodMMTs1otuL9j0gzrgZr1kB-h1hmkVOMiIDZQUhTJokFyVvyi5y9bY'
+            const workflow = "basic_flow"
             const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow,`${txnId}_PII`);
 
             const handler = (HyperKycResult) => {
