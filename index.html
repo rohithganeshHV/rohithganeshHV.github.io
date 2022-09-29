@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.1.4/src/sdk.min.js"></script>
+    <script src="https://hv-camera-web-sg.s3-ap-southeast-1.amazonaws.com/hyperverge-web-sdk@5.2.4/src/sdk.min.js"></script>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     </left>
     <div class="container">
         <div class="form-group">
-            <button type="button" onclick="startPOIWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER Temporary for coinsbit- Please check console for output</button>
+            <button type="button" onclick="startPOIWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER ZAMP- Please check console for output</button>
           <!--  <button type="button" onclick="startPOAWorkflow();" class="btn btn-primary">GKYC WORKFLOW BUILDER POA 1- Please check console for output</button>
 -->
         </div>
@@ -30,9 +30,9 @@
             
             
             
-            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjlkZDU2YiIsImhhc2giOiIyM2I0YTkyNzM2ZGY3ODdjNDA3YjUzNmYzMzE4MjdmZGU2MWJiM2I4MWM4ZGJkY2Q3YTgzMWFmNzY3OWM3NjZlIiwiaWF0IjoxNjYwMzE4MTI1LCJleHAiOjE2NjA0MDQ1MjUsImp0aSI6ImI3NTVkMThkLTUzZmItNGRhYi1hZGNmLTk0ZDNkYjc4OWEwYyJ9.epwWP7uZv3Edr7MOO9AhCODmfYw1Wg2irzxArjLSncPNphybcSnjhzE2NP5zLe_bFaC2RaamRlZznbnWB2v2zt4kRSHTAomZvx9N8mm5E46Jhj69VHA3yodMMTs1otuL9j0gzrgZr1kB-h1hmkVOMiIDZQUhTJokFyVvyi5y9bY'
-            const workflow = "basic_flow"
-            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow,`${txnId}_PII`);
+            var accessToken = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjFvNTh1eCIsImhhc2giOiJmN2I4MTFiMGE1NzY5ODRkYmVmYjBjNDdjM2VmYzBlYTQzZjNkODhhODE2MjI2NmE1NWQzZTBkYzRjZjQxMjdlIiwiaWF0IjoxNjY0NDM4NTA0LCJleHAiOjE2NjQ1MjQ5MDQsImp0aSI6IjcyMzkyOTdiLWMzZmEtNDVkZC04OWE3LTVjMTBhZGEwNTdlNSJ9.nAMS7rPC0NcIL9_PP437TIkU-RzRsCvII4ktD1CkumlEmqemxHb6vkuRAGv6I0IsqGL-wF3Zkyea50wtXM4O8q96j3dUALi5_7vM-NVCYVyQfPZz4gF30pbxJDbu2fC7AFpniFlb1sMbR9fhhm-UZeBe4bkwSwjYYQUxCejwfUY'
+            const workflow = "global_workflow"
+            const hyperKycConfig = new window.HyperKycConfig(accessToken, workflow,`${txnId}_internaHV`);
 
             const handler = (HyperKycResult) => {
                 if (HyperKycResult.Cancelled) { //User cancelled
